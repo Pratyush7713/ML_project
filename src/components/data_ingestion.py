@@ -5,6 +5,7 @@ from src.exception import CustomException
 from src.logger import logging
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
+from src.components.data_transformation import DataTransformation
 
 '''
 @dataclass is a decorator in Python that automatically generates common methods for classes that are mainly used to store data.
@@ -46,7 +47,7 @@ for you.
 
 @dataclass
 class DataIngestionConfig:
-    train_data_path: str = os.path.join('artifacts', 'trin.csv')
+    train_data_path: str = os.path.join('artifacts', 'train.csv')
     test_data_path: str = os.path.join('artifacts', 'test.csv')
     raw_data_path: str = os.path.join('artifacts', 'raw.csv')
 
@@ -79,4 +80,6 @@ class dataIngestion:
     
 if __name__ == "__main__":
     obj = dataIngestion()
-    obj.initial_data_ingestion()
+    train_path, test_path = obj.initial_data_ingestion()
+    data_tranformation = DataTransformation()
+    data_tranformation.initiate_data_transformation(train_path=train_path, test_path=test_path)
