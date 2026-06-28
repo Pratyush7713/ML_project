@@ -6,6 +6,7 @@ from src.logger import logging
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from src.components.data_transformation import DataTransformation
+from src.components.model_trainer import ModelTainer
 
 '''
 @dataclass is a decorator in Python that automatically generates common methods for classes that are mainly used to store data.
@@ -82,4 +83,6 @@ if __name__ == "__main__":
     obj = dataIngestion()
     train_path, test_path = obj.initial_data_ingestion()
     data_tranformation = DataTransformation()
-    data_tranformation.initiate_data_transformation(train_path=train_path, test_path=test_path)
+    train_arr, test_arr,_=data_tranformation.initiate_data_transformation(train_path=train_path, test_path=test_path)
+    model_trainer = ModelTainer()
+    print(model_trainer.Find_Best_Model(train_arr,test_arr))
