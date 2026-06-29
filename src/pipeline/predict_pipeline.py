@@ -26,14 +26,14 @@ class CustomData:
                  race_ethnicity: str,
                  parental_level_of_education: str,
                  lunch: str,
-                 test_prepration_course: str,
+                 test_preparation_course: str,
                  reading_score: int,
                  writing_score: int):
         self.gender = gender
         self.race_ethnicity = race_ethnicity
         self.parental_level_of_education = parental_level_of_education
         self.lunch = lunch
-        self.test_prepration_course = test_prepration_course
+        self.test_preparation_course = test_preparation_course
         self.reading_score = reading_score
         self.writing_score = writing_score
     
@@ -44,7 +44,7 @@ class CustomData:
                 "race/ethnicity" : self.race_ethnicity,
                 "parental level of education" : self.parental_level_of_education,
                 "lunch" : self.lunch,
-                "test preparation course" : self.test_prepration_course,
+                "test preparation course" : self.test_preparation_course,
                 "reading score" : self.reading_score,
                 "writing score" : self.writing_score
             }
